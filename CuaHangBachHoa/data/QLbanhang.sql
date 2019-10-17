@@ -1,6 +1,18 @@
-Create database QuanLyBanHang
+﻿Create database QuanLyBanHang
 use QuanLyBanHang
 
+ 
+-- KHACHANG
+IF OBJECT_ID('USERS') IS NOT NULL
+	DROP TABLE USERS
+GO
+CREATE TABLE USERS(
+	tentaikhoan NVARCHAR(50) NOT NULL, -- manhanvien phải cùng với tên tài khoản
+	matkhau NVARCHAR(50) NOT NULL,
+	chucnang NVARCHAR(50) NOT NULL, --chức năng phải cùng với chức năng bảng nhân viên
+	--KHOA CHINH
+	CONSTRAINT PK_USERS PRIMARY KEY (tentaikhoan)
+)
 
 IF OBJECT_ID ('NhacCungCap') IS NOT NULL
 DROP TABLE NhacCungCap
@@ -73,6 +85,7 @@ Create table Hoadon(
 
 IF OBJECT_ID ('ChiTietHoaDon') IS NOT NULL
 DROP TABLE ChiTietHoaDon
+GO
 Create table ChiTietHoaDon(
 	MaHoaDon nvarchar(50) not null,
 	MaHangHoa nvarchar(50)not null,
@@ -83,9 +96,19 @@ Create table ChiTietHoaDon(
 	constraint FK_ChiTietHoaDon_Hanghoa foreign key(MaHangHoa) references Hanghoa(MaHangHoa),
 	constraint FK_MaHangHoa_Hoadon foreign key(MaHoaDon) references Hoadon(MaHoaDon)
 )
+ 
+INSERT INTO USERS VALUES  (N'hieu',N'123',N'nguyen thi bao',0)
+INSERT INTO USERS VALUES  (N'kien',N'123',N'le thi hieu',1)
+INSERT INTO USERS VALUES  (N'teo',N'123',N' nguyen van',0)
+INSERT INTO USERS VALUES  (N'tu',N'123',N'phan',1)
+
 
 delete NhacCungCap
 
+
+
+
+select *from USERS
 select *from NhacCungCap
 select*from ThuongHieu
 select*from Hanghoa

@@ -14,7 +14,7 @@ public class connectionDB {
         Connection cn=null;
         String userName="sa";
         String passWord="123";
-        String url="jdbc:sqlserver://127.0.0.1:1433;databaseName=";
+        String url="jdbc:sqlserver://127.0.0.1:1433;databaseName=QuanLyBanHang";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             cn=DriverManager.getConnection(url, userName, passWord);           

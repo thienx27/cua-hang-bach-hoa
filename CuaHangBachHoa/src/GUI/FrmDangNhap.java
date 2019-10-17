@@ -1,6 +1,6 @@
 package GUI;
 
-import Lib.MessageBox;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +25,7 @@ public class FrmDangNhap extends javax.swing.JInternalFrame {
     Connection con;
     String user = "sa";
     String pass = "123";
-    String url = "jdbc:sqlserver://127.0.0.1:1433;databaseName=";
+    String url = "jdbc:sqlserver://127.0.0.1:1433;databaseName=QuanLyBanHang";
 
     public FrmDangNhap() {
         initComponents();
@@ -36,26 +36,27 @@ public class FrmDangNhap extends javax.swing.JInternalFrame {
 //            JOptionPane.showMessageDialog(this, "Ket noi thất bại!");
 //        }
     }
- public String checkUser() {
-        try {
-            String sql = "SELECT * FROM USERS";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) {
-                if (rs.getString(1).equalsIgnoreCase(txt_Username.getText())) {
-                    if (rs.getString(2).equals(String.valueOf(txt_Password.getPassword()))) {
-                        return rs.getString(3);
-                    } else {
-                        System.out.println("False Password");
-                    }
-                }
-            }
+// public String checkUser() {
+//        try {
+//            String sql = "SELECT * FROM USERS where username=? and password=?";
+//            Statement st = con.createStatement();
+//            ResultSet rs = st.executeQuery(sql);
+//            while (rs.next()) {
+//                if (rs.getString(1).equalsIgnoreCase(txt_Username.getText())) {
+//                    if (rs.getString(2).equals(String.valueOf(txt_Password.getPassword()))) {
+//                        return rs.getString(3);
+//                    } else {
+//                        System.out.println("False Password");
+//                    }
+//                }
+//            }
+//
+//        } catch (SQLException ex) {
+//            System.out.println("lỗi");
+//        }
+//        return "False";
+//    }
 
-        } catch (SQLException ex) {
-            System.out.println("loi");
-        }
-        return "False";
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -167,20 +168,36 @@ public class FrmDangNhap extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_DangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DangNhapActionPerformed
-if(checkUser().equals("0")){
-        new FrmQuanLyNhanVien().setVisible(true);
-         new FrmQuanLyNhanVien().setVisible(true);
-        this.setVisible(false);
-    }else if(checkUser().equals("1")){
-        new FrmQuanLyHangHoa().setVisible(true);
-        this.setVisible(false);
-    }else if(checkUser().equals("False")){
-        JOptionPane.showMessageDialog(this, "False UserName");
-        txt_Username.requestFocus();
-    }else{
-        JOptionPane.showMessageDialog(this, "False Password");
-        txt_Password.requestFocus();
-    }
+        String sql = "SELECT * FROM USERS where tentaikhoan=? and matkhau=?";
+        try {
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, txt_Username.getText());
+            pst.setString(2, txt_Password.getText());
+            ResultSet rs=pst.executeQuery();
+            if (rs.next()) {
+                FrmQuanLyNhanVien QLNV= new FrmQuanLyNhanVien();
+                QLNV.setVisible(true);
+                
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showConfirmDialog(null, e);
+        }
+//if(checkUser().equals("0")){
+//        new FrmQuanLyNhanVien().setVisible(true);
+//         new FrmQuanLyNhanVien().setVisible(true);
+//        this.setVisible(false);
+//    }else if(checkUser().equals("1")){
+//        new FrmQuanLyHangHoa().setVisible(true);
+//        this.setVisible(false);
+//    }else if(checkUser().equals("False")){
+//        JOptionPane.showMessageDialog(this, "False UserName");
+//        txt_Username.requestFocus();
+//    }else{
+//        JOptionPane.showMessageDialog(this, "False Password");
+//        txt_Password.requestFocus();
+//    }
 ////check the valid user
         //this.dispose();
         // TODO add your handling code here:

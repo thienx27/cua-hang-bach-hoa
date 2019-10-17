@@ -5,6 +5,22 @@ GO
 USE QLBH
 GO
 ---------------------------------------------
+ 
+-- LOGINS
+IF OBJECT_ID('logins') IS NOT NULL
+	DROP TABLE logins
+GO
+CREATE TABLE logins
+(
+	username VARCHAR(20) NOT NULL,
+	password varchar(20) not null,
+	lastname varchar(20) null,
+	isAdmin bit null
+	
+	--KHOA CHINH
+	CONSTRAINT PK_logins PRIMARY KEY (username)
+)
+ 
 -- KHACHANG
 IF OBJECT_ID ('KHACHHANG') IS NOT NULL
 DROP TABLE KHACHHANG
@@ -60,6 +76,7 @@ CREATE TABLE HOADON(
  -- Khoa ngoai cho bang HOADON
  constraint FK_KHACHHANG_HOADON foreign key(MAKH) references KHACHHANG(MAKH),
  constraint FK_NHANVIEN_HOADON foreign key(MANV) references NHANVIEN(MANV),
+
 --ALTER TABLE HOADON ADD CONSTRAINT fk01_HD FOREIGN KEY(MAKH) REFERENCES KHACHHANG(MAKH)
 --ALTER TABLE HOADON DROP CONSTRAINT FK01_HD
 --ALTER TABLE HOADON ADD CONSTRAINT fk02_HD FOREIGN KEY(MANV) REFERENCES NHANVIEN(MANV)
@@ -75,7 +92,6 @@ CREATE TABLE CTHD(
  MASP char(4),
  SL int,
  constraint pk_cthd primary key(SOHD,MASP),
-
  constraint FK_HOADON_CTHD foreign key(SOHD) references HOADON(SOHD),
  constraint FK_SANPHAMN_CTHD foreign key(MASP) references SANPHAM(MASP),
 
@@ -89,6 +105,14 @@ CREATE TABLE CTHD(
 -----------------------------------------------------
 
 -------------------------------
+
+SELECT   *FROM   logins
+DELETE FROM logins
+INSERT INTO logins VALUES  (N'bich',N'123',N'phan thi ngoc',0)
+INSERT INTO logins VALUES  (N'hieu',N'123',N'nguyen thi bao',0)
+INSERT INTO logins VALUES  (N'kien',N'123',N'le thi hieu',1)
+INSERT INTO logins VALUES  (N'teo',N'123',N' nguyen van',0)
+INSERT INTO logins VALUES  (N'tu',N'123',N'phan',1)
 -- KHACHHANG
 delete KHACHHANG
 insert into KHACHHANG values('KH01','Nguyen Van A','731 Tran Hung Dao, Q5, TpHCM','8823451','22/10/1960','22/07/2006',13060000)
