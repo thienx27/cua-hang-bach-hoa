@@ -16,7 +16,7 @@ public class DangNhapDao {
         List<Users> list=null;
         Session session=HibernateUtil.getSessionFactory().getCurrentSession();
         session.getTransaction().begin();
-        String sql="from Dangnhap";
+        String sql="from USERS";
         if(tendn.length()>0){
             sql +=" where tentaikhoan like '%"+tendn+"'%";
         }

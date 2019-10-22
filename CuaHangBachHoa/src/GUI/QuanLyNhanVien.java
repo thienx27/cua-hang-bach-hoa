@@ -72,7 +72,7 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_diachi = new javax.swing.JTextArea();
-        txt_sdt = new javax.swing.JTextField();
+        txt_Luong = new javax.swing.JTextField();
         txt_ngaysinh = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -83,6 +83,8 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
         txt_manhanvien2 = new javax.swing.JTextField();
         btn_sua = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_sdt1 = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -121,17 +123,14 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
         tbl_nhanvien.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tbl_nhanvien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Mã nhân viên", "Họ và tên", "Giới tính", "Ngày sinh", "Số điện thoại", "Email", "Đại chỉ", "Chức năng"
+                "Mã nhân viên", "Họ và tên", "Giới tính", "Ngày sinh", "Số điện thoại", "Email", "Đại chỉ", "Chức năng", "Lương"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -229,15 +228,15 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
         jLabel9.setBounds(518, 420, 110, 45);
 
         cbo_chucvu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cbo_chucvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên", "Quản lý", "Thu ngân" }));
+        cbo_chucvu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quản lý cửa hàng", "Nhân viên kho", "Nhân viên thu ngân" }));
         jPanel1.add(cbo_chucvu);
-        cbo_chucvu.setBounds(660, 420, 250, 45);
+        cbo_chucvu.setBounds(660, 420, 340, 45);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 0, 51));
         jLabel8.setText("Địa chỉ:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(520, 490, 110, 45);
+        jLabel8.setBounds(520, 590, 110, 45);
 
         txt_diachi.setColumns(20);
         txt_diachi.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
@@ -245,11 +244,11 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
         jScrollPane2.setViewportView(txt_diachi);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(660, 490, 252, 133);
+        jScrollPane2.setBounds(660, 480, 470, 90);
 
-        txt_sdt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPanel1.add(txt_sdt);
-        txt_sdt.setBounds(200, 590, 248, 45);
+        txt_Luong.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel1.add(txt_Luong);
+        txt_Luong.setBounds(660, 590, 280, 45);
 
         txt_ngaysinh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(txt_ngaysinh);
@@ -340,6 +339,16 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
         jPanel1.add(jLabel10);
         jLabel10.setBounds(-10, -30, 1180, 750);
 
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel11.setText("Địa chỉ:");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(520, 500, 110, 45);
+
+        txt_sdt1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel1.add(txt_sdt1);
+        txt_sdt1.setBounds(200, 590, 248, 45);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -426,6 +435,7 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -441,13 +451,14 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
     private javax.swing.JRadioButton rdo_nam;
     private javax.swing.JRadioButton rdo_nu;
     private javax.swing.JTable tbl_nhanvien;
+    private javax.swing.JTextField txt_Luong;
     private javax.swing.JTextArea txt_diachi;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_hovaten;
     private javax.swing.JTextField txt_manhanvien1;
     private javax.swing.JTextField txt_manhanvien2;
     private javax.swing.JTextField txt_ngaysinh;
-    private javax.swing.JTextField txt_sdt;
+    private javax.swing.JTextField txt_sdt1;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -489,11 +500,11 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
 
         }
 
-        if (txt_sdt.getText().isEmpty()) {
+        if (txt_sdt1.getText().isEmpty()) {
                JOptionPane.showMessageDialog(null, "Xin mời nhập số điện thoại" , "Thông báo!", JOptionPane.ERROR_MESSAGE);
             
             return false;
-        } else if (!txt_sdt.getText().matches("0[0-9]{9,10}")) {
+        } else if (!txt_sdt1.getText().matches("0[0-9]{9,10}")) {
              JOptionPane.showMessageDialog(null, "Sai định dạng số điện thoại" , "Thông báo!", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -513,9 +524,18 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
                    JOptionPane.showMessageDialog(null, "Xin mời nhập địa chỉ" , "Thông báo!", JOptionPane.ERROR_MESSAGE);
         }
 
+       
+        if (txt_Luong.getText().isEmpty()) {
+               JOptionPane.showMessageDialog(null, "Xin mời Lương" , "Thông báo!", JOptionPane.ERROR_MESSAGE);
+            
+            return false;
+        } else if (!txt_Luong.getText().matches("0[0-9]{9,10}")) {
+             JOptionPane.showMessageDialog(null, "Sai định dạng Lương" , "Thông báo!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } 
         return true;
     }
-
+ 
     @Override
     public boolean checktrung() {
         Nhanvien nv = NhanVienDao.timkiemNhanVien(txt_manhanvien2.getText());
@@ -563,7 +583,7 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
                     t = "Nữ";
                 }
                 Date ngaysinh = new SimpleDateFormat("yyyy-dd-MM").parse(txt_ngaysinh.getText());
-                Nhanvien nv = new Nhanvien(txt_manhanvien2.getText(), txt_hovaten.getText(), gt, ngaysinh, txt_sdt.getText(), txt_email.getText(), txt_diachi.getText(), cbo_chucvu.getSelectedItem().toString(), imganh);
+                Nhanvien nv = new Nhanvien(txt_manhanvien2.getText(), txt_hovaten.getText(), gt, ngaysinh, txt_Luong.getText(), txt_email.getText(), txt_diachi.getText(), cbo_chucvu.getSelectedItem().toString(), imganh);
                 boolean themnv = NhanVienDao.themnhanvien(nv);
                 if (themnv = false) {
                            JOptionPane.showMessageDialog(null, "Lỗi thêm nhân viên vào CSDL" , "Thông báo!", JOptionPane.ERROR_MESSAGE);
@@ -579,6 +599,7 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
                     thembang.add(nv.getEmail());
                     thembang.add(nv.getDiaChi());
                     thembang.add(nv.getChucVu());
+                    thembang.add(nv.getLuong());
                     model.addRow(thembang);
        JOptionPane.showMessageDialog(null, "Thêm thành công nhân viên : " + txt_hovaten.getText() , "Thông báo!", JOptionPane.INFORMATION_MESSAGE);
                    
@@ -623,17 +644,18 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
                         t = "Nữ";
                     }
                     Date ngaysinh = new SimpleDateFormat("yyyy-dd-MM").parse(txt_ngaysinh.getText());
-                    Nhanvien nv = new Nhanvien(txt_manhanvien2.getText(), txt_hovaten.getText(), gt, ngaysinh, txt_sdt.getText(), txt_email.getText(), txt_diachi.getText(), cbo_chucvu.getSelectedItem().toString(), imganh);
+                    Nhanvien nv = new Nhanvien(txt_manhanvien2.getText(), txt_hovaten.getText(), gt, ngaysinh, txt_Luong.getText(), txt_email.getText(), txt_diachi.getText(), cbo_chucvu.getSelectedItem().toString(), imganh);
                     boolean capnhat = NhanVienDao.capnhatNhanVien(nv);
                     if (capnhat) {
                         model.setValueAt(txt_manhanvien2.getText(), index, 0);
                         model.setValueAt(txt_hovaten.getText(), index, 1);
                         model.setValueAt(t, index, 2);
                         model.setValueAt(txt_ngaysinh.getText(), index, 3);
-                        model.setValueAt(txt_sdt.getText(), index, 4);
+                        model.setValueAt(txt_Luong.getText(), index, 4);
                         model.setValueAt(txt_email.getText(), index, 5);
                         model.setValueAt(txt_diachi.getText(), index, 6);
                         model.setValueAt(cbo_chucvu.getSelectedItem().toString(), index, 7);
+                        model.setValueAt(txt_Luong.getText().toString(), index, 8);
                          JOptionPane.showMessageDialog(null, "Cập nhật thành công nhân viên Mã :"+txt_manhanvien2.getText()  , "Thông báo!", JOptionPane.INFORMATION_MESSAGE);
                         
                         if (nv.getChucVu().equals("Quản lý") || nv.getChucVu().equals("Thu ngân")) {
@@ -690,7 +712,7 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
         txt_manhanvien2.setText("");
         txt_manhanvien1.setText("");
         txt_ngaysinh.setText("");
-        txt_sdt.setText("");
+        txt_Luong.setText("");
 
     }
 
@@ -706,10 +728,11 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
             rdo_nu.setSelected(true);
         }
         txt_ngaysinh.setText(tbl_nhanvien.getValueAt(index, 3).toString());
-        txt_sdt.setText(tbl_nhanvien.getValueAt(index, 4).toString());
+        txt_Luong.setText(tbl_nhanvien.getValueAt(index, 4).toString());
         txt_email.setText(tbl_nhanvien.getValueAt(index, 5).toString());
         txt_diachi.setText(tbl_nhanvien.getValueAt(index, 6).toString());
         cbo_chucvu.setSelectedItem(tbl_nhanvien.getValueAt(index, 7).toString());
+        txt_Luong.setText(tbl_nhanvien.getValueAt(index, 8).toString());
        
 
     }
@@ -739,7 +762,7 @@ public class QuanLyNhanVien extends javax.swing.JInternalFrame implements intern
                 gt = "Nữ";
             }
             Object a[] = new Object[]{
-                nv.getMaNhanVien(), nv.getTenNhanVien(), gt, nv.getNgaySinh(), nv.getSoDienThoai(), nv.getEmail(), nv.getDiaChi(), nv.getChucVu()
+                nv.getMaNhanVien(), nv.getTenNhanVien(), gt, nv.getNgaySinh(), nv.getSoDienThoai(), nv.getEmail(), nv.getDiaChi(), nv.getChucVu(),nv.getLuong()
             };
             model.addRow(a);
 
