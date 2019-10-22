@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2019 2:33:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Nhanvien" table="nhanvien" schema="dbo" catalog="QuanLyBanHang" optimistic-lock="version">
+        <id name="maNhanVien" type="serializable">
+            <column name="MaNhanVien" />
+            <generator class="assigned" />
+        </id>
+        <property name="tenNhanVien" type="serializable">
+            <column name="TenNhanVien" />
+        </property>
+        <property name="gioitinh" type="java.lang.Boolean">
+            <column name="Gioitinh" />
+        </property>
+        <property name="ngaySinh" type="serializable">
+            <column name="NgaySinh" />
+        </property>
+        <property name="soDienThoai" type="java.lang.Integer">
+            <column name="SoDienThoai" />
+        </property>
+        <property name="diaChi" type="serializable">
+            <column name="DiaChi" />
+        </property>
+        <property name="chucVu" type="serializable">
+            <column name="ChucVu" />
+        </property>
+        <property name="luong" type="java.lang.Integer">
+            <column name="Luong" />
+        </property>
+        <property name="email" type="serializable">
+            <column name="Email" />
+        </property>
+        <set name="hoadons" table="Hoadon" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaNhanVien" not-null="true" />
+            </key>
+            <one-to-many class="Entity.Hoadon" />
+        </set>
+    </class>
+</hibernate-mapping>

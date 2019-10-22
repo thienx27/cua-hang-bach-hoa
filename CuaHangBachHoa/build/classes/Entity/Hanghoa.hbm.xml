@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2019 2:33:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Hanghoa" table="Hanghoa" schema="dbo" catalog="QuanLyBanHang" optimistic-lock="version">
+        <id name="maHangHoa" type="serializable">
+            <column name="MaHangHoa" />
+            <generator class="assigned" />
+        </id>
+        <property name="tenHangHoa" type="serializable">
+            <column name="TenHangHoa" />
+        </property>
+        <property name="loaihanghoa" type="serializable">
+            <column name="Loaihanghoa" />
+        </property>
+        <property name="nhaCungCap" type="serializable">
+            <column name="NhaCungCap" not-null="true" />
+        </property>
+        <property name="maThuongHieu" type="serializable">
+            <column name="MaThuongHieu" />
+        </property>
+        <property name="giaban" type="java.lang.Integer">
+            <column name="Giaban" />
+        </property>
+        <property name="soLuong" type="java.lang.Integer">
+            <column name="SoLuong" />
+        </property>
+        <set name="chiTietHoaDons" table="ChiTietHoaDon" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaHangHoa" not-null="true" />
+            </key>
+            <one-to-many class="Entity.ChiTietHoaDon" />
+        </set>
+    </class>
+</hibernate-mapping>

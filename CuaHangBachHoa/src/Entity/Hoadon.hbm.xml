@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 22, 2019 2:33:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Hoadon" table="Hoadon" schema="dbo" catalog="QuanLyBanHang" optimistic-lock="version">
+        <id name="maHoaDon" type="serializable">
+            <column name="MaHoaDon" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="nhanvien" class="Entity.Nhanvien" fetch="select">
+            <column name="MaNhanVien" not-null="true" />
+        </many-to-one>
+        <property name="tenKhachHang" type="serializable">
+            <column name="TenKhachHang" />
+        </property>
+        <property name="ngaylap" type="timestamp">
+            <column name="Ngaylap" length="23" />
+        </property>
+        <one-to-one name="chiTietHoaDon" class="Entity.ChiTietHoaDon"></one-to-one>
+    </class>
+</hibernate-mapping>
