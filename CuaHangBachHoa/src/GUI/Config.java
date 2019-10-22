@@ -45,7 +45,7 @@ public class Config extends javax.swing.JInternalFrame {
                 ObjectInputStream ois = new ObjectInputStream(fis);
                 ois.readObject();
                 JDesktopPane jdp = getDesktopPane();
-                FrmDangNhap dn = new FrmDangNhap();
+                DangNhap dn = new DangNhap();
                 jdp.add(dn);
                 dn.setVisible(true);
                 this.dispose();
@@ -187,7 +187,7 @@ public class Config extends javax.swing.JInternalFrame {
             oos.close();
             JOptionPane.showMessageDialog(this, "Kết nối thành công!");
             JDesktopPane jdp = getDesktopPane();
-            FrmDangNhap dn = new FrmDangNhap();
+            DangNhap dn = new DangNhap();
             jdp.add(dn);
             dn.show();
             this.dispose();

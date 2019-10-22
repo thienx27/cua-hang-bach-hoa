@@ -135,14 +135,14 @@ public class FrmMain extends javax.swing.JFrame {
         manv = "";
         jDesktopPane1.removeAll();
 
-        new FrmDangNhap().setVisible(true);
+        new DangNhap().setVisible(true);
         dispose();
 
 
     }//GEN-LAST:event_mnDangnhapActionPerformed
 
     private void mnNhanVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNhanVienActionPerformed
-        FrmQuanLyNhanVien NhanVien = new FrmQuanLyNhanVien();
+        QuanLyNhanVien NhanVien = new QuanLyNhanVien();
         NhanVien.setVisible(true);
         this.jDesktopPane1.add(NhanVien);
 
